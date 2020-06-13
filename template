@@ -1,0 +1,29 @@
+# Template file for 'picom-ibhagwan'
+pkgname=picom-ibhagwan
+version=1
+revision=0
+wrksrc=picom-next
+build_style=meson
+configure_args="-Dwith_docs=true"
+hostmakedepends="pkg-config asciidoc"
+makedepends="MesaLib-devel dbus-devel libconfig-devel libev-devel pcre-devel
+ pixman-devel xcb-util-image-devel xcb-util-renderutil-devel
+ libxdg-basedir-devel uthash"
+depends="desktop-file-utils"
+short_desc="Lightweight compositor for X11 (previously a compton fork)"
+maintainer="Frank Steinborn <steinex@nognu.de>"
+license="MIT, MPL-2.0"
+homepage="https://github.com/ibhagwan/picom/"
+distfiles="https://github.com/ibhagwan/picom/archive/next.tar.gz"
+checksum=e522508682837230c0219ac3da8326feba9547abf79789fda403d35ee7077e09
+
+post_install() {
+	vlicense LICENSES/MIT
+	vsconf picom.sample.conf
+}
+
+picom-ibhagwan_package() {
+	depends="${sourcepkg}>=${version}_${revision}"
+	build_style=meta
+	short_desc+=" (transitional dummy package)"
+}
