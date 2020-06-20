@@ -1,7 +1,7 @@
 # Template file for 'picom-ibhagwan'
 pkgname=picom-ibhagwan
 version=1
-revision=0
+revision=1
 wrksrc=picom-next
 build_style=meson
 configure_args="-Dwith_docs=true"
@@ -15,7 +15,7 @@ maintainer="Frank Steinborn <steinex@nognu.de>"
 license="MIT, MPL-2.0"
 homepage="https://github.com/ibhagwan/picom/"
 distfiles="https://github.com/ibhagwan/picom/archive/next.tar.gz"
-checksum=e522508682837230c0219ac3da8326feba9547abf79789fda403d35ee7077e09
+checksum=1f5463867838e48c8fbf3076813fcf6e5b5f6828835e01d8d2b39054671d74fe
 
 post_install() {
 	vlicense LICENSES/MIT
